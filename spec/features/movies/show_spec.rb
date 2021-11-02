@@ -6,6 +6,7 @@ RSpec.describe 'Movie show page' do
     @movie = @studio.movies.create!(title: 'Dune', creation_year: 2021, genre: 'Sci-Fi')
     @actor_1 = @movie.actors.create!(name: 'Bob', age: 50)
     @actor_2 = @movie.actors.create!(name: 'Greg', age: 30)
+    @actor_3 = Actor.create!(name: 'Sally', age: 15)
   end
 
   it 'should have the movies info' do
@@ -29,5 +30,16 @@ RSpec.describe 'Movie show page' do
     visit movie_path(@movie)
 
     expect(page).to have_content("Average Age: 40")
+  end
+
+  it 'can add actors to a movie' do
+    visit movie_path(@movie)
+
+    expect(page).to_not have_content(@actor_3.name)
+
+    fill_in 'name', with: @actor_3.name
+    click_button
+
+    expect(page).to have_content(@actor_3.name)
   end
 end

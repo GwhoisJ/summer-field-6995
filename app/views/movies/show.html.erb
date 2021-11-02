@@ -9,3 +9,9 @@ Average Age: <%= @movie.average_age %>
     <li id="actor-<%= index %>"><%= actor.name %></li>
   <% end %>
 </ul>
+<%= form_with url: actor_movies_path, method: :post, local: true do |form| %>
+  <%= form.hidden_field :movie_id, value: @movie.id %>
+  <%= form.label :name %>
+  <%= form.text_field :name%>
+  <%= form.submit %>
+<% end %>
