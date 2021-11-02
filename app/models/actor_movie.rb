@@ -1,0 +1,3 @@
+class ActorMovie < ApplicationRecord
+
+end
