@@ -4,7 +4,7 @@
 Co-Actors:
 
 <ul>
-  <% @actor.find_coworkers[0].each do |coworker| %>
+  <% @actor.find_coworkers.each do |coworker| %>
     <li><%= coworker.name %></li>
   <% end %>
 </ul>

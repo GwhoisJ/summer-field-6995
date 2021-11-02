@@ -9,6 +9,6 @@ class Actor < ApplicationRecord
   def find_coworkers
     movies.map do |movie|
       movie.actors.where.not(id: self.id)
-    end.uniq
+    end.flatten.uniq
   end
 end

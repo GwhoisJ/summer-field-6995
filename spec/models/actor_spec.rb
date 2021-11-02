@@ -33,8 +33,7 @@ RSpec.describe Actor, type: :model do
 
     describe 'find_coworkers' do
       it 'finds the coworkers' do
-        expect(@actor_1.find_coworkers[0][0]).to eq(@actor_2)
-        expect(@actor_1.find_coworkers).to_not include(@actor_3)
+        expect(@actor_1.find_coworkers).to eq([@actor_2])
       end
     end
   end
