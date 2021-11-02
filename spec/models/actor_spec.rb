@@ -1,5 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe Actor, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it {should have_many :actor_movies}
+  it {should have_many(:movies).through(:actor_movies)}
 end
